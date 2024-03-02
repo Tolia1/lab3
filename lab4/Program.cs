@@ -24,4 +24,8 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.Map("/Library/Profile/{id:int:range(0, 5)}", (int? id) => $"Id: {id}");
+app.Map("/Library/Profile/", () => $"Інформація про самого користувача");
+app.Map("/Library", () => "Hello there");
+
 app.Run();
